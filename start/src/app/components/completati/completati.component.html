@@ -1,0 +1,25 @@
+<div class="container mt-5">
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-5">
+      <ng-container *ngIf="tasks; else elseTemplate">
+        <div id="listaCompletati" class="container m-auto p-5" *ngIf="tasks.length > 0; else elseNoTask">
+          <h2 class="mb-5 display-6">Lista Completati:</h2>
+          <p *ngFor="let task of tasks; let i = index">✔ {{i+1}}° : {{ task.title }}</p>
+        </div>
+      </ng-container>
+      <ng-template #elseTemplate>
+        <div class="container m-auto p-5">
+          <div class="alert alert-dark" role="alert">
+            Lettura in corso...
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template #elseNoTask>
+        <div class="container m-auto p-5">
+          <div class="alert alert-danger" role="alert">!Lista "Completati" vuota!</div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
